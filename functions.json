@@ -1,5 +1,21 @@
 [
   {
+    "name": "analyze_rag_info",
+    "description": "Analyze RAG information from aichat for a given input string using bash.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_string": {
+          "type": "string",
+          "description": "The input string to analyze with aichat RAG."
+        }
+      },
+      "required": [
+        "input_string"
+      ]
+    }
+  },
+  {
     "name": "execute_command",
     "description": "Execute the shell command.",
     "parameters": {
