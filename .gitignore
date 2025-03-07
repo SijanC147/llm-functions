@@ -15,4 +15,4 @@ node_modules
 #/package.json
 #package-lock.json
 #*.lock
-#/mcp.json
+/mcp.json

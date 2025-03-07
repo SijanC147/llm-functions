@@ -1,4 +1,5 @@
 analyze_rag_info.sh
+analyze_role_info.sh
 #demo_js.js
 #demo_py.py
 #demo_sh.sh

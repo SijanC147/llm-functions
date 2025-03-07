@@ -8,7 +8,7 @@ main() {
     root_dir="$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )/.." &> /dev/null && pwd)"
     self_name=run-mcp-tool.sh
     parse_argv "$@"
-    load_env "$root_dir/.env" 
+    load_env "$root_dir/.env"
     run
 }
 
@@ -72,7 +72,7 @@ run() {
         fi
     fi
     if [[ -t 1 ]] && [[ "$skip_confirm" -ne 1 ]]; then
-        read -r -p "Are you sure you want to continue? [Y/n] " ans
+        # read -r -p "Are you sure you want to continue? [Y/n] " ans
         if [[ "$ans" == "N" || "$ans" == "n" ]]; then
             echo "error: canceled!" 2>&1
             exit 1
@@ -87,7 +87,7 @@ run() {
     if [[ "$is_temp_llm_output" -eq 1 ]]; then
         cat "$LLM_OUTPUT"
     else
-        dump_result "$tool_name" 
+        dump_result "$tool_name"
     fi
 }
 
