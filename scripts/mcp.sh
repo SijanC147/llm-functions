@@ -25,7 +25,7 @@ start() {
     fi
     echo "Start MCP Bridge server..."
     echo "Install node dependencies..." > "$MCP_LOG_FILE"
-    (cd "$ROOT_DIR/mcp/bridge" && npm install 1>/dev/null 2>> "$MCP_LOG_FILE")
+    npm install --prefix "$ROOT_DIR/mcp/bridge" 1>/dev/null 2>> "$MCP_LOG_FILE"
     nohup node "$index_js" "$llm_functions_dir" >> "$MCP_LOG_FILE" 2>&1 &
     wait-for-server
     echo "Merge MCP tools into functions.json"
@@ -89,7 +89,6 @@ logs() {
 
 # @cmd Build tools to bin
 build-bin() {
-    mkdir -p "$BIN_DIR"
     tools=( $(generate-declarations | jq -r '.[].name') )
     for tool in "${tools[@]}"; do
         if _is_win; then
@@ -106,10 +105,7 @@ build-bin() {
 # @cmd Merge mcp tools into functions.json
 # @flag -S --save Save to functions.json
 merge-functions() {
-    local tmpdir="$(mktemp -d)"
-    "$0" recovery-functions > "$tmpdir/1.json"
-    generate-declarations > "$tmpdir/2.json"
-    result="$(jq -s '.[0] + .[1]' "$tmpdir/1.json" "$tmpdir/2.json")"
+    result="$(jq --argjson json1 "$("$0" recovery-functions)" --argjson json2 "$(generate-declarations)" -n '($json1 + $json2)')"
     if [[ -n "$argc_save" ]]; then
         printf "%s" "$result" > "$FUNCTIONS_JSON_PATH"
     else
@@ -134,18 +130,13 @@ recovery-functions() {
 
 # @cmd Generate function declarations for the mcp tools
 generate-declarations() {
-    pid="$(get-server-pid)"
-    if [[ -n "$pid" ]]; then
-        curl -sS http://localhost:$MCP_BRIDGE_PORT/tools
-    else
-        echo "[]"
-    fi
+    curl -sS http://localhost:$MCP_BRIDGE_PORT/tools
 }
 
 # @cmd Wait for the mcp bridge server to ready
 wait-for-server() {
     while true; do
-        if [[ "$(curl -fsS --max-time 5 http://localhost:$MCP_BRIDGE_PORT/health 2>&1)" == "OK" ]]; then
+        if [[ "$(curl -fsS http://localhost:$MCP_BRIDGE_PORT/health 2>&1)" == "OK" ]]; then
             break;
         fi
         sleep 1
@@ -154,7 +145,7 @@ wait-for-server() {
 
 # @cmd Get the server pid
 get-server-pid() {
-    curl -fsS --max-time 5 http://localhost:$MCP_BRIDGE_PORT/pid 2>/dev/null || true
+    curl -fsSL http://localhost:$MCP_BRIDGE_PORT/pid 2>/dev/null || true
 }
 
 _ask_json_data() {

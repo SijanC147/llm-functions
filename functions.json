@@ -1,0 +1,2420 @@
+[
+  {
+    "description": "Analyze RAG information from aichat using bash, if rag not specified, get all rags using 'aichat --list-rags'.",
+    "name": "analyze_rag_info",
+    "parameters": {
+      "properties": {
+        "rag_name": {
+          "description": "Represents the name of the rag to analyze, if not provided, execute the command once for each rag.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Analyze Role information from aichat using bash, if role_name not specified, get all roles using 'aichat --list-roles'.",
+    "name": "analyze_role_info",
+    "parameters": {
+      "properties": {
+        "role_name": {
+          "description": "Optionally specify the role name to analyze.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Execute the shell command.",
+    "name": "execute_command",
+    "parameters": {
+      "properties": {
+        "command": {
+          "description": "The command to execute.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "command"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Execute the javascript code in node.js.",
+    "name": "execute_js_code",
+    "parameters": {
+      "properties": {
+        "code": {
+          "description": "Javascript code to execute, such as `console.log(\"hello world\")`",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Execute the python code.",
+    "name": "execute_py_code",
+    "parameters": {
+      "properties": {
+        "code": {
+          "description": "Python code to execute, such as `print(\"hello world\")`",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Execute the sql code.",
+    "name": "execute_sql_code",
+    "parameters": {
+      "properties": {
+        "code": {
+          "description": "The code to execute.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Extract the content from a given URL.",
+    "name": "fetch_url_via_curl",
+    "parameters": {
+      "properties": {
+        "url": {
+          "description": "The URL to scrape.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Extract the content from a given URL.",
+    "name": "fetch_url_via_jina",
+    "parameters": {
+      "properties": {
+        "url": {
+          "description": "The URL to scrape.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Read the contents of a file at the specified path.\nUse this when you need to examine the contents of an existing file.",
+    "name": "fs_cat",
+    "parameters": {
+      "properties": {
+        "path": {
+          "description": "The path of the file to read",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "List all files and directories at the specified path.",
+    "name": "fs_ls",
+    "parameters": {
+      "properties": {
+        "path": {
+          "description": "The path of the directory to list",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Create a new directory at the specified path.",
+    "name": "fs_mkdir",
+    "parameters": {
+      "properties": {
+        "path": {
+          "description": "The path of the directory to create",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Remove the file or directory at the specified path.",
+    "name": "fs_rm",
+    "parameters": {
+      "properties": {
+        "path": {
+          "description": "The path of the file or directory to remove",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Write the full file contents to a file at the specified path.",
+    "name": "fs_write",
+    "parameters": {
+      "properties": {
+        "contents": {
+          "description": "The full contents to write to the file",
+          "type": "string"
+        },
+        "path": {
+          "description": "The path of the file to write to",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "contents"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Get the current time.",
+    "name": "get_current_time",
+    "parameters": {
+      "properties": {},
+      "required": [],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Get the current weather in a given location.",
+    "name": "get_current_weather",
+    "parameters": {
+      "properties": {
+        "location": {
+          "description": "The city and optionally the state or country, e.g., \"London\", \"San Francisco, CA\".",
+          "type": "string"
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Search arXiv for a query and return the top papers.",
+    "name": "search_arxiv",
+    "parameters": {
+      "properties": {
+        "query": {
+          "description": "The query to search for.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Search Wikipedia for a query.\nUses it to get detailed information about a public figure, interpretation of a complex scientific concept or in-depth connectivity of a significant historical event,.",
+    "name": "search_wikipedia",
+    "parameters": {
+      "properties": {
+        "query": {
+          "description": "The query to search for.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Get an answer to a question using Wolfram Alpha. Input should the query in English.\nUse it to answer user questions that require computation, detailed facts, data analysis, or complex queries.",
+    "name": "search_wolframalpha",
+    "parameters": {
+      "properties": {
+        "query": {
+          "description": "The query to search for.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Perform a web search using Perplexity API to get up-to-date information or additional context.\nUse this when you need current information or feel a search could provide a better answer.",
+    "name": "web_search",
+    "parameters": {
+      "properties": {
+        "query": {
+          "description": "The query to search for.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Run a read-only SQL query",
+    "mcp": "postgres",
+    "name": "postgres_query",
+    "parameters": {
+      "properties": {
+        "sql": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  {
+    "description": "Create or update a single file in a GitHub repository",
+    "mcp": "github",
+    "name": "github_create_or_update_file",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "branch": {
+          "description": "Branch to create/update the file in",
+          "type": "string"
+        },
+        "content": {
+          "description": "Content of the file",
+          "type": "string"
+        },
+        "message": {
+          "description": "Commit message",
+          "type": "string"
+        },
+        "owner": {
+          "description": "Repository owner (username or organization)",
+          "type": "string"
+        },
+        "path": {
+          "description": "Path where to create/update the file",
+          "type": "string"
+        },
+        "repo": {
+          "description": "Repository name",
+          "type": "string"
+        },
+        "sha": {
+          "description": "SHA of the file being replaced (required when updating existing files)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "path",
+        "content",
+        "message",
+        "branch"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Search for GitHub repositories",
+    "mcp": "github",
+    "name": "github_search_repositories",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "page": {
+          "description": "Page number for pagination (default: 1)",
+          "type": "number"
+        },
+        "perPage": {
+          "description": "Number of results per page (default: 30, max: 100)",
+          "type": "number"
+        },
+        "query": {
+          "description": "Search query (see GitHub search syntax)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Create a new GitHub repository in your account",
+    "mcp": "github",
+    "name": "github_create_repository",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "autoInit": {
+          "description": "Initialize with README.md",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "Repository description",
+          "type": "string"
+        },
+        "name": {
+          "description": "Repository name",
+          "type": "string"
+        },
+        "private": {
+          "description": "Whether the repository should be private",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Get the contents of a file or directory from a GitHub repository",
+    "mcp": "github",
+    "name": "github_get_file_contents",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "branch": {
+          "description": "Branch to get contents from",
+          "type": "string"
+        },
+        "owner": {
+          "description": "Repository owner (username or organization)",
+          "type": "string"
+        },
+        "path": {
+          "description": "Path to the file or directory",
+          "type": "string"
+        },
+        "repo": {
+          "description": "Repository name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "path"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Push multiple files to a GitHub repository in a single commit",
+    "mcp": "github",
+    "name": "github_push_files",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "branch": {
+          "description": "Branch to push to (e.g., 'main' or 'master')",
+          "type": "string"
+        },
+        "files": {
+          "description": "Array of files to push",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "content"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "message": {
+          "description": "Commit message",
+          "type": "string"
+        },
+        "owner": {
+          "description": "Repository owner (username or organization)",
+          "type": "string"
+        },
+        "repo": {
+          "description": "Repository name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "branch",
+        "files",
+        "message"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Create a new issue in a GitHub repository",
+    "mcp": "github",
+    "name": "github_create_issue",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "assignees": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "body": {
+          "type": "string"
+        },
+        "labels": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "milestone": {
+          "type": "number"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "title"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Create a new pull request in a GitHub repository",
+    "mcp": "github",
+    "name": "github_create_pull_request",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "description": "The name of the branch you want the changes pulled into",
+          "type": "string"
+        },
+        "body": {
+          "description": "Pull request body/description",
+          "type": "string"
+        },
+        "draft": {
+          "description": "Whether to create the pull request as a draft",
+          "type": "boolean"
+        },
+        "head": {
+          "description": "The name of the branch where your changes are implemented",
+          "type": "string"
+        },
+        "maintainer_can_modify": {
+          "description": "Whether maintainers can modify the pull request",
+          "type": "boolean"
+        },
+        "owner": {
+          "description": "Repository owner (username or organization)",
+          "type": "string"
+        },
+        "repo": {
+          "description": "Repository name",
+          "type": "string"
+        },
+        "title": {
+          "description": "Pull request title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "title",
+        "head",
+        "base"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Fork a GitHub repository to your account or specified organization",
+    "mcp": "github",
+    "name": "github_fork_repository",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "organization": {
+          "description": "Optional: organization to fork to (defaults to your personal account)",
+          "type": "string"
+        },
+        "owner": {
+          "description": "Repository owner (username or organization)",
+          "type": "string"
+        },
+        "repo": {
+          "description": "Repository name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Create a new branch in a GitHub repository",
+    "mcp": "github",
+    "name": "github_create_branch",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "branch": {
+          "description": "Name for the new branch",
+          "type": "string"
+        },
+        "from_branch": {
+          "description": "Optional: source branch to create from (defaults to the repository's default branch)",
+          "type": "string"
+        },
+        "owner": {
+          "description": "Repository owner (username or organization)",
+          "type": "string"
+        },
+        "repo": {
+          "description": "Repository name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "branch"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Get list of commits of a branch in a GitHub repository",
+    "mcp": "github",
+    "name": "github_list_commits",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "perPage": {
+          "type": "number"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "sha": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "List issues in a GitHub repository with filtering options",
+    "mcp": "github",
+    "name": "github_list_issues",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "labels": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "since": {
+          "type": "string"
+        },
+        "sort": {
+          "enum": [
+            "created",
+            "updated",
+            "comments"
+          ],
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "open",
+            "closed",
+            "all"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Update an existing issue in a GitHub repository",
+    "mcp": "github",
+    "name": "github_update_issue",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "assignees": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "body": {
+          "type": "string"
+        },
+        "issue_number": {
+          "type": "number"
+        },
+        "labels": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "milestone": {
+          "type": "number"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "open",
+            "closed"
+          ],
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "issue_number"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Add a comment to an existing issue",
+    "mcp": "github",
+    "name": "github_add_issue_comment",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "issue_number": {
+          "type": "number"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "issue_number",
+        "body"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Search for code across GitHub repositories",
+    "mcp": "github",
+    "name": "github_search_code",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "order": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "type": "number"
+        },
+        "per_page": {
+          "maximum": 100,
+          "minimum": 1,
+          "type": "number"
+        },
+        "q": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "q"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Search for issues and pull requests across GitHub repositories",
+    "mcp": "github",
+    "name": "github_search_issues",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "order": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "type": "number"
+        },
+        "per_page": {
+          "maximum": 100,
+          "minimum": 1,
+          "type": "number"
+        },
+        "q": {
+          "type": "string"
+        },
+        "sort": {
+          "enum": [
+            "comments",
+            "reactions",
+            "reactions-+1",
+            "reactions--1",
+            "reactions-smile",
+            "reactions-thinking_face",
+            "reactions-heart",
+            "reactions-tada",
+            "interactions",
+            "created",
+            "updated"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "q"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Search for users on GitHub",
+    "mcp": "github",
+    "name": "github_search_users",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "order": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "type": "number"
+        },
+        "per_page": {
+          "maximum": 100,
+          "minimum": 1,
+          "type": "number"
+        },
+        "q": {
+          "type": "string"
+        },
+        "sort": {
+          "enum": [
+            "followers",
+            "repositories",
+            "joined"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "q"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Get details of a specific issue in a GitHub repository.",
+    "mcp": "github",
+    "name": "github_get_issue",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "issue_number": {
+          "type": "number"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "issue_number"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Manages the current playback with the following actions:\n    - get: Get information about user's current track.\n    - start: Starts playing new item or resumes current playback if called with no uri.\n    - pause: Pauses current playback.\n    - skip: Skips current track.\n    ",
+    "mcp": "spotify",
+    "name": "spotify_spotifyplayback",
+    "parameters": {
+      "description": "Manages the current playback with the following actions:\n- get: Get information about user's current track.\n- start: Starts playing new item or resumes current playback if called with no uri.\n- pause: Pauses current playback.\n- skip: Skips current track.",
+      "properties": {
+        "action": {
+          "description": "Action to perform: 'get', 'start', 'pause' or 'skip'.",
+          "title": "Action",
+          "type": "string"
+        },
+        "num_skips": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 1,
+          "description": "Number of tracks to skip for `skip` action.",
+          "title": "Num Skips"
+        },
+        "spotify_uri": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Spotify uri of item to play for 'start' action. If omitted, resumes current playback.",
+          "title": "Spotify Uri"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "Playback",
+      "type": "object"
+    }
+  },
+  {
+    "description": "Search for tracks, albums, artists, or playlists on Spotify.",
+    "mcp": "spotify",
+    "name": "spotify_spotifysearch",
+    "parameters": {
+      "description": "Search for tracks, albums, artists, or playlists on Spotify.",
+      "properties": {
+        "limit": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 10,
+          "description": "Maximum number of items to return",
+          "title": "Limit"
+        },
+        "qtype": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "track",
+          "description": "Type of items to search for (track, album, artist, playlist, or comma-separated combination)",
+          "title": "Qtype"
+        },
+        "query": {
+          "description": "query term",
+          "title": "Query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "title": "Search",
+      "type": "object"
+    }
+  },
+  {
+    "description": "Manage the playback queue - get the queue or add tracks.",
+    "mcp": "spotify",
+    "name": "spotify_spotifyqueue",
+    "parameters": {
+      "description": "Manage the playback queue - get the queue or add tracks.",
+      "properties": {
+        "action": {
+          "description": "Action to perform: 'add' or 'get'.",
+          "title": "Action",
+          "type": "string"
+        },
+        "track_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Track ID to add to queue (required for add action)",
+          "title": "Track Id"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "title": "Queue",
+      "type": "object"
+    }
+  },
+  {
+    "description": "Get detailed information about a Spotify item (track, album, artist, or playlist).",
+    "mcp": "spotify",
+    "name": "spotify_spotifygetinfo",
+    "parameters": {
+      "description": "Get detailed information about a Spotify item (track, album, artist, or playlist).",
+      "properties": {
+        "item_id": {
+          "description": "ID of the item to get information about",
+          "title": "Item Id",
+          "type": "string"
+        },
+        "qtype": {
+          "default": "track",
+          "description": "Type of item: 'track', 'album', 'artist', or 'playlist'. If 'playlist' or 'album', returns its tracks. If 'artist',returns albums and top tracks.",
+          "title": "Qtype",
+          "type": "string"
+        }
+      },
+      "required": [
+        "item_id"
+      ],
+      "title": "GetInfo",
+      "type": "object"
+    }
+  },
+  {
+    "description": "Check latest stable versions for npm packages",
+    "mcp": "package-version",
+    "name": "package_version_check_npm_versions",
+    "parameters": {
+      "properties": {
+        "constraints": {
+          "additionalProperties": {
+            "properties": {
+              "excludePackage": {
+                "description": "Exclude this package from updates",
+                "type": "boolean"
+              },
+              "majorVersion": {
+                "description": "Limit updates to this major version",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "description": "Optional constraints for specific packages",
+          "type": "object"
+        },
+        "dependencies": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Dependencies object from package.json",
+          "type": "object"
+        }
+      },
+      "required": [
+        "dependencies"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Check latest stable versions for Python packages",
+    "mcp": "package-version",
+    "name": "package_version_check_python_versions",
+    "parameters": {
+      "properties": {
+        "requirements": {
+          "description": "Array of requirements from requirements.txt",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "requirements"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Check latest stable versions for Python packages in pyproject.toml",
+    "mcp": "package-version",
+    "name": "package_version_check_pyproject_versions",
+    "parameters": {
+      "properties": {
+        "dependencies": {
+          "description": "Dependencies object from pyproject.toml",
+          "properties": {
+            "dependencies": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Project dependencies from pyproject.toml",
+              "type": "object"
+            },
+            "dev-dependencies": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Development dependencies from pyproject.toml",
+              "type": "object"
+            },
+            "optional-dependencies": {
+              "additionalProperties": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "description": "Optional dependencies from pyproject.toml",
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "dependencies"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Check latest stable versions for Java packages in pom.xml",
+    "mcp": "package-version",
+    "name": "package_version_check_maven_versions",
+    "parameters": {
+      "properties": {
+        "dependencies": {
+          "description": "Array of Maven dependencies",
+          "items": {
+            "properties": {
+              "artifactId": {
+                "description": "Maven artifact ID",
+                "type": "string"
+              },
+              "groupId": {
+                "description": "Maven group ID",
+                "type": "string"
+              },
+              "scope": {
+                "description": "Dependency scope (e.g., compile, test, provided)",
+                "type": "string"
+              },
+              "version": {
+                "description": "Current version (optional)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "groupId",
+              "artifactId"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "dependencies"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Check latest stable versions for Java packages in build.gradle",
+    "mcp": "package-version",
+    "name": "package_version_check_gradle_versions",
+    "parameters": {
+      "properties": {
+        "dependencies": {
+          "description": "Array of Gradle dependencies",
+          "items": {
+            "properties": {
+              "configuration": {
+                "description": "Gradle configuration (e.g., implementation, testImplementation)",
+                "type": "string"
+              },
+              "group": {
+                "description": "Package group",
+                "type": "string"
+              },
+              "name": {
+                "description": "Package name",
+                "type": "string"
+              },
+              "version": {
+                "description": "Current version (optional)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "configuration",
+              "group",
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "dependencies"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Check latest stable versions for Go packages in go.mod",
+    "mcp": "package-version",
+    "name": "package_version_check_go_versions",
+    "parameters": {
+      "properties": {
+        "dependencies": {
+          "description": "Dependencies from go.mod",
+          "properties": {
+            "module": {
+              "description": "Module name",
+              "type": "string"
+            },
+            "replace": {
+              "description": "Replacement dependencies",
+              "items": {
+                "properties": {
+                  "new": {
+                    "description": "Replacement package path",
+                    "type": "string"
+                  },
+                  "old": {
+                    "description": "Original package path",
+                    "type": "string"
+                  },
+                  "version": {
+                    "description": "Current version",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "old",
+                  "new"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "require": {
+              "description": "Required dependencies",
+              "items": {
+                "properties": {
+                  "path": {
+                    "description": "Package import path",
+                    "type": "string"
+                  },
+                  "version": {
+                    "description": "Current version",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "module"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "dependencies"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Search, list, and get information about Amazon Bedrock models",
+    "mcp": "package-version",
+    "name": "package_version_check_bedrock_models",
+    "parameters": {
+      "properties": {
+        "action": {
+          "default": "list",
+          "description": "Action to perform: list all models, search for models, or get a specific model",
+          "enum": [
+            "list",
+            "search",
+            "get"
+          ],
+          "type": "string"
+        },
+        "modelId": {
+          "description": "Model ID to retrieve (used with action: \"get\")",
+          "type": "string"
+        },
+        "provider": {
+          "description": "Filter by provider name (used with action: \"search\")",
+          "type": "string"
+        },
+        "query": {
+          "description": "Search query for model name or ID (used with action: \"search\")",
+          "type": "string"
+        },
+        "region": {
+          "description": "Filter by AWS region (used with action: \"search\")",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  {
+    "description": "Get the latest Claude Sonnet model from Amazon Bedrock (best for coding tasks)",
+    "mcp": "package-version",
+    "name": "package_version_get_latest_bedrock_model",
+    "parameters": {
+      "properties": {},
+      "type": "object"
+    }
+  },
+  {
+    "description": "Check available tags for Docker container images from Docker Hub, GitHub Container Registry, or custom registries",
+    "mcp": "package-version",
+    "name": "package_version_check_docker_tags",
+    "parameters": {
+      "properties": {
+        "customRegistry": {
+          "description": "URL for custom registry (required when registry is \"custom\")",
+          "type": "string"
+        },
+        "filterTags": {
+          "description": "Array of regex patterns to filter tags",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "image": {
+          "description": "Docker image name (e.g., \"nginx\", \"ubuntu\", \"ghcr.io/owner/repo\")",
+          "type": "string"
+        },
+        "includeDigest": {
+          "default": false,
+          "description": "Include image digest in results",
+          "type": "boolean"
+        },
+        "limit": {
+          "default": 10,
+          "description": "Maximum number of tags to return",
+          "type": "number"
+        },
+        "registry": {
+          "default": "dockerhub",
+          "description": "Registry to check (dockerhub, ghcr, or custom)",
+          "enum": [
+            "dockerhub",
+            "ghcr",
+            "custom"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "image"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Create a new standalone Docker container",
+    "mcp": "docker-mcp",
+    "name": "docker_mcp_create_container",
+    "parameters": {
+      "properties": {
+        "environment": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "image": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "ports": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "image"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Deploy a Docker Compose stack",
+    "mcp": "docker-mcp",
+    "name": "docker_mcp_deploy_compose",
+    "parameters": {
+      "properties": {
+        "compose_yaml": {
+          "type": "string"
+        },
+        "project_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "compose_yaml",
+        "project_name"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Retrieve the latest logs for a specified Docker container",
+    "mcp": "docker-mcp",
+    "name": "docker_mcp_get_logs",
+    "parameters": {
+      "properties": {
+        "container_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "container_name"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "List all Docker containers",
+    "mcp": "docker-mcp",
+    "name": "docker_mcp_list_containers",
+    "parameters": {
+      "properties": {},
+      "type": "object"
+    }
+  },
+  {
+    "description": "Query Gmail emails based on an optional search query. \n            Returns emails in reverse chronological order (newest first).\n            Returns metadata such as subject and also a short summary of the content.\n            ",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_query_gmail_emails",
+    "parameters": {
+      "properties": {
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "max_results": {
+          "default": 100,
+          "description": "Maximum number of emails to retrieve (1-500)",
+          "maximum": 500,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "query": {
+          "description": "Gmail search query (optional). Examples:\n                            - a $string: Search email body, subject, and sender information for $string\n                            - 'is:unread' for unread emails\n                            - 'from:example@gmail.com' for emails from a specific sender\n                            - 'newer_than:2d' for emails from last 2 days\n                            - 'has:attachment' for emails with attachments\n                            If not provided, returns recent emails without filtering.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Retrieves a complete Gmail email message by its ID, including the full message body and attachment IDs.",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_get_gmail_email",
+    "parameters": {
+      "properties": {
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "email_id": {
+          "description": "The ID of the Gmail message to retrieve",
+          "type": "string"
+        }
+      },
+      "required": [
+        "email_id",
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Creates a draft email message from scratch in Gmail with specified recipient, subject, body, and optional CC recipients.\n            \n            Do NOT use this tool when you want to draft or send a REPLY to an existing message. This tool does NOT include any previous message content. Use the reply_gmail_email tool\n            with send=False instead.\"\n            ",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_create_gmail_draft",
+    "parameters": {
+      "properties": {
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "body": {
+          "description": "Body content of the email",
+          "type": "string"
+        },
+        "cc": {
+          "description": "Optional list of email addresses to CC",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "subject": {
+          "description": "Subject line of the email",
+          "type": "string"
+        },
+        "to": {
+          "description": "Email address of the recipient",
+          "type": "string"
+        }
+      },
+      "required": [
+        "to",
+        "subject",
+        "body",
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Deletes a Gmail draft message by its ID. This action cannot be undone.",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_delete_gmail_draft",
+    "parameters": {
+      "properties": {
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "draft_id": {
+          "description": "The ID of the draft to delete",
+          "type": "string"
+        }
+      },
+      "required": [
+        "draft_id",
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Creates a reply to an existing Gmail email message and either sends it or saves as draft.\n\n            Use this tool if you want to draft a reply. Use the 'cc' argument if you want to perform a \"reply all\".\n            ",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_reply_gmail_email",
+    "parameters": {
+      "properties": {
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "cc": {
+          "description": "Optional list of email addresses to CC on the reply",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "original_message_id": {
+          "description": "The ID of the Gmail message to reply to",
+          "type": "string"
+        },
+        "reply_body": {
+          "description": "The body content of your reply message",
+          "type": "string"
+        },
+        "send": {
+          "default": false,
+          "description": "If true, sends the reply immediately. If false, saves as draft.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "original_message_id",
+        "reply_body",
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Retrieves a Gmail attachment by its ID.",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_get_gmail_attachment",
+    "parameters": {
+      "properties": {
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "attachment_id": {
+          "description": "The ID of the attachment to retrieve",
+          "type": "string"
+        },
+        "filename": {
+          "description": "The filename of the attachment",
+          "type": "string"
+        },
+        "message_id": {
+          "description": "The ID of the Gmail message containing the attachment",
+          "type": "string"
+        },
+        "mime_type": {
+          "description": "The MIME type of the attachment",
+          "type": "string"
+        },
+        "save_to_disk": {
+          "description": "The fullpath to save the attachment to disk. If not provided, the attachment is returned as a resource.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_id",
+        "attachment_id",
+        "mime_type",
+        "filename",
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Retrieves multiple Gmail email messages by their IDs in a single request, including the full message bodies and attachment IDs.",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_bulk_get_gmail_emails",
+    "parameters": {
+      "properties": {
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "email_ids": {
+          "description": "List of Gmail message IDs to retrieve",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "email_ids",
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Saves multiple Gmail attachments to disk by their message IDs and attachment IDs in a single request.",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_bulk_save_gmail_attachments",
+    "parameters": {
+      "properties": {
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "attachments": {
+          "items": {
+            "properties": {
+              "message_id": {
+                "description": "ID of the Gmail message containing the attachment",
+                "type": "string"
+              },
+              "part_id": {
+                "description": "ID of the part containing the attachment",
+                "type": "string"
+              },
+              "save_path": {
+                "description": "Path where the attachment should be saved",
+                "type": "string"
+              }
+            },
+            "required": [
+              "message_id",
+              "part_id",
+              "save_path"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "attachments",
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Lists all calendars accessible by the user. \n            Call it before any other tool whenever the user specifies a particular agenda (Family, Holidays, etc.).",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_list_calendars",
+    "parameters": {
+      "properties": {
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        }
+      },
+      "required": [
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Retrieves calendar events from the user's Google Calendar within a specified time range.",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_get_calendar_events",
+    "parameters": {
+      "properties": {
+        "__calendar_id__": {
+          "default": "primary",
+          "description": "Optional ID of the specific agenda for which you are executing this action.\n                          If not provided, the default calendar is being used. \n                          If not known, the specific calendar id can be retrieved with the list_calendars tool",
+          "type": "string"
+        },
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "max_results": {
+          "default": 250,
+          "description": "Maximum number of events to return (1-2500)",
+          "maximum": 2500,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "show_deleted": {
+          "default": false,
+          "description": "Whether to include deleted events",
+          "type": "boolean"
+        },
+        "time_max": {
+          "description": "End time in RFC3339 format (e.g. 2024-12-31T23:59:59Z). Optional.",
+          "type": "string"
+        },
+        "time_min": {
+          "description": "Start time in RFC3339 format (e.g. 2024-12-01T00:00:00Z). Defaults to current time if not specified.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "__user_id__"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Creates a new event in a specified Google Calendar of the specified user.",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_create_calendar_event",
+    "parameters": {
+      "properties": {
+        "__calendar_id__": {
+          "default": "primary",
+          "description": "Optional ID of the specific agenda for which you are executing this action.\n                          If not provided, the default calendar is being used. \n                          If not known, the specific calendar id can be retrieved with the list_calendars tool",
+          "type": "string"
+        },
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "attendees": {
+          "description": "List of attendee email addresses (optional)",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "Description or notes for the event (optional)",
+          "type": "string"
+        },
+        "end_time": {
+          "description": "End time in RFC3339 format (e.g. 2024-12-01T11:00:00Z)",
+          "type": "string"
+        },
+        "location": {
+          "description": "Location of the event (optional)",
+          "type": "string"
+        },
+        "send_notifications": {
+          "default": true,
+          "description": "Whether to send notifications to attendees",
+          "type": "boolean"
+        },
+        "start_time": {
+          "description": "Start time in RFC3339 format (e.g. 2024-12-01T10:00:00Z)",
+          "type": "string"
+        },
+        "summary": {
+          "description": "Title of the event",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Timezone for the event (e.g. 'America/New_York'). Defaults to UTC if not specified.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "__user_id__",
+        "summary",
+        "start_time",
+        "end_time"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Deletes an event from the user's Google Calendar by its event ID.",
+    "mcp": "mcp-gsuite",
+    "name": "mcp_gsuite_delete_calendar_event",
+    "parameters": {
+      "properties": {
+        "__calendar_id__": {
+          "default": "primary",
+          "description": "Optional ID of the specific agenda for which you are executing this action.\n                          If not provided, the default calendar is being used. \n                          If not known, the specific calendar id can be retrieved with the list_calendars tool",
+          "type": "string"
+        },
+        "__user_id__": {
+          "description": "The EMAIL of the Google account for which you are executing this action. Can be one of: Account for email: seanbugeja23@gmail.com of type: personal. Extra info for: Contains personal calander",
+          "type": "string"
+        },
+        "event_id": {
+          "description": "The ID of the calendar event to delete",
+          "type": "string"
+        },
+        "send_notifications": {
+          "default": true,
+          "description": "Whether to send cancellation notifications to attendees",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "__user_id__",
+        "event_id"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "IMPORTANT: First check if project context is already available in the conversation before making any new requests. Use lc-get-files for retrieving specific files, and only use this tool when a broad repository overview is needed.\n\nGenerates a structured repository overview including: 1) Directory tree with file status (✓ full, ○ outline, ✗ excluded) 2) Complete contents of key files 3) Smart outlines highlighting important definitions in supported languages. The output is customizable via profiles that control file inclusion rules and presentation format. The assistant tracks previously retrieved project context in the conversation and checks this history before making new requests.",
+    "mcp": "llmcontext",
+    "name": "llmcontext_lc_project_context",
+    "parameters": {
+      "properties": {
+        "profile_name": {
+          "default": "code",
+          "description": "Profile to use (e.g. 'code', 'copy', 'full') - defines file inclusion and presentation rules",
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "title": "Profile Name",
+          "type": "string"
+        },
+        "root_path": {
+          "description": "Root directory path (e.g. '/home/user/projects/myproject')",
+          "format": "path",
+          "title": "Root Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "root_path"
+      ],
+      "title": "ContextRequest",
+      "type": "object"
+    }
+  },
+  {
+    "description": "IMPORTANT: Check previously retrieved file contents before making new requests. Retrieves (read-only) complete contents of specified files from the project. The assistant cannot modify files with this tool - it only reads their contents.",
+    "mcp": "llmcontext",
+    "name": "llmcontext_lc_get_files",
+    "parameters": {
+      "properties": {
+        "paths": {
+          "description": "File paths relative to root_path, starting with a forward slash and including the root directory name. For example, if root_path is '/home/user/projects/myproject', then a valid path would be '/myproject/src/main.py",
+          "items": {
+            "type": "string"
+          },
+          "title": "Paths",
+          "type": "array"
+        },
+        "root_path": {
+          "description": "Root directory path (e.g. '/home/user/projects/myproject')",
+          "format": "path",
+          "title": "Root Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "root_path",
+        "paths"
+      ],
+      "title": "FilesRequest",
+      "type": "object"
+    }
+  },
+  {
+    "description": "IMPORTANT: First get the generation timestamp from the project context. Returns a list of paths to files that have been modified since a given timestamp. This is typically used to track which files have changed during the conversation. After getting the list, use lc-get-files to examine the contents of any modified files of interest.",
+    "mcp": "llmcontext",
+    "name": "llmcontext_lc_list_modified_files",
+    "parameters": {
+      "properties": {
+        "profile_name": {
+          "default": "code",
+          "description": "Profile to use (e.g. 'code', 'copy', 'full') - defines file inclusion and presentation rules",
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "title": "Profile Name",
+          "type": "string"
+        },
+        "root_path": {
+          "description": "Root directory path (e.g. '/home/user/projects/myproject')",
+          "format": "path",
+          "title": "Root Path",
+          "type": "string"
+        },
+        "timestamp": {
+          "description": "Unix timestamp to check modifications since",
+          "title": "Timestamp",
+          "type": "number"
+        }
+      },
+      "required": [
+        "root_path",
+        "timestamp"
+      ],
+      "title": "ListModifiedFilesRequest",
+      "type": "object"
+    }
+  },
+  {
+    "description": "Returns smart outlines highlighting important definitions in all supported code files. This provides a high-level overview of code structure without retrieving full file contents. Outlines show key definitions (classes, functions, methods) in the codebase.",
+    "mcp": "llmcontext",
+    "name": "llmcontext_lc_code_outlines",
+    "parameters": {
+      "properties": {
+        "profile_name": {
+          "default": "code",
+          "description": "Profile to use for file selection rules",
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "title": "Profile Name",
+          "type": "string"
+        },
+        "root_path": {
+          "description": "Root directory path (e.g. '/home/user/projects/myproject')",
+          "format": "path",
+          "title": "Root Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "root_path"
+      ],
+      "title": "OutlinesRequest",
+      "type": "object"
+    }
+  },
+  {
+    "description": "Keep the memory for later use, when you are asked to remember something.",
+    "mcp": "qdrant",
+    "name": "qdrant_qdrant_store_memory",
+    "parameters": {
+      "properties": {
+        "information": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "information"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Look up memories in Qdrant. Use this tool when you need to: \n - Find memories by their content \n - Access memories for further analysis \n - Get some personal information about the user",
+    "mcp": "qdrant",
+    "name": "qdrant_qdrant_find_memories",
+    "parameters": {
+      "properties": {
+        "query": {
+          "description": "The query to search for in the memories",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Navigate to a URL",
+    "mcp": "playwright",
+    "name": "playwright_playwright_navigate",
+    "parameters": {
+      "properties": {
+        "height": {
+          "description": "Viewport height in pixels (default: 720)",
+          "type": "number"
+        },
+        "timeout": {
+          "description": "Navigation timeout in milliseconds",
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "waitUntil": {
+          "description": "Navigation wait condition",
+          "type": "string"
+        },
+        "width": {
+          "description": "Viewport width in pixels (default: 1280)",
+          "type": "number"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Take a screenshot of the current page or a specific element",
+    "mcp": "playwright",
+    "name": "playwright_playwright_screenshot",
+    "parameters": {
+      "properties": {
+        "downloadsDir": {
+          "description": "Custom downloads directory path (default: user's Downloads folder)",
+          "type": "string"
+        },
+        "fullPage": {
+          "description": "Store screenshot of the entire page (default: false)",
+          "type": "boolean"
+        },
+        "height": {
+          "description": "Height in pixels (default: 600)",
+          "type": "number"
+        },
+        "name": {
+          "description": "Name for the screenshot",
+          "type": "string"
+        },
+        "savePng": {
+          "description": "Save screenshot as PNG file (default: false)",
+          "type": "boolean"
+        },
+        "selector": {
+          "description": "CSS selector for element to screenshot",
+          "type": "string"
+        },
+        "storeBase64": {
+          "description": "Store screenshot in base64 format (default: true)",
+          "type": "boolean"
+        },
+        "width": {
+          "description": "Width in pixels (default: 800)",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Click an element on the page",
+    "mcp": "playwright",
+    "name": "playwright_playwright_click",
+    "parameters": {
+      "properties": {
+        "selector": {
+          "description": "CSS selector for the element to click",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Click an element in an iframe on the page",
+    "mcp": "playwright",
+    "name": "playwright_playwright_iframe_click",
+    "parameters": {
+      "properties": {
+        "iframeSelector": {
+          "description": "CSS selector for the iframe containing the element to click",
+          "type": "string"
+        },
+        "selector": {
+          "description": "CSS selector for the element to click",
+          "type": "string"
+        }
+      },
+      "required": [
+        "iframeSelector",
+        "selector"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "fill out an input field",
+    "mcp": "playwright",
+    "name": "playwright_playwright_fill",
+    "parameters": {
+      "properties": {
+        "selector": {
+          "description": "CSS selector for input field",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value to fill",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector",
+        "value"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Select an element on the page with Select tag",
+    "mcp": "playwright",
+    "name": "playwright_playwright_select",
+    "parameters": {
+      "properties": {
+        "selector": {
+          "description": "CSS selector for element to select",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value to select",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector",
+        "value"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Hover an element on the page",
+    "mcp": "playwright",
+    "name": "playwright_playwright_hover",
+    "parameters": {
+      "properties": {
+        "selector": {
+          "description": "CSS selector for element to hover",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Execute JavaScript in the browser console",
+    "mcp": "playwright",
+    "name": "playwright_playwright_evaluate",
+    "parameters": {
+      "properties": {
+        "script": {
+          "description": "JavaScript code to execute",
+          "type": "string"
+        }
+      },
+      "required": [
+        "script"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Perform an HTTP GET request",
+    "mcp": "playwright",
+    "name": "playwright_playwright_get",
+    "parameters": {
+      "properties": {
+        "url": {
+          "description": "URL to perform GET operation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Perform an HTTP POST request",
+    "mcp": "playwright",
+    "name": "playwright_playwright_post",
+    "parameters": {
+      "properties": {
+        "url": {
+          "description": "URL to perform POST operation",
+          "type": "string"
+        },
+        "value": {
+          "description": "Data to post in the body",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "value"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Perform an HTTP PUT request",
+    "mcp": "playwright",
+    "name": "playwright_playwright_put",
+    "parameters": {
+      "properties": {
+        "url": {
+          "description": "URL to perform PUT operation",
+          "type": "string"
+        },
+        "value": {
+          "description": "Data to PUT in the body",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "value"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Perform an HTTP PATCH request",
+    "mcp": "playwright",
+    "name": "playwright_playwright_patch",
+    "parameters": {
+      "properties": {
+        "url": {
+          "description": "URL to perform PUT operation",
+          "type": "string"
+        },
+        "value": {
+          "description": "Data to PATCH in the body",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "value"
+      ],
+      "type": "object"
+    }
+  },
+  {
+    "description": "Perform an HTTP DELETE request",
+    "mcp": "playwright",
+    "name": "playwright_playwright_delete",
+    "parameters": {
+      "properties": {
+        "url": {
+          "description": "URL to perform DELETE operation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "type": "object"
+    }
+  }
+]
