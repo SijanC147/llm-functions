@@ -1,0 +1,19 @@
+{
+  "disabledMcpjsonServers": [
+    "exa",
+    "tavily",
+    "magic",
+    "docker",
+    "supabase",
+    "digitalocean",
+    "vercel",
+    "railway",
+    "gitkraken",
+    "daytona",
+    "screenpipe",
+    "n8n",
+    "openmemory",
+    "chrome-devtools",
+    "playwright"
+  ]
+}
